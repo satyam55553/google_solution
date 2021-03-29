@@ -37,7 +37,7 @@ public class ContributeActivity extends AppCompatActivity {
     Spinner universityList, courseList, branchList, semesterList, subjectList;
     String university, course, branch, subject, module, topic, url, topicCode;
     int semester;
-    Button contriBtn,youTubeBtn;
+    Button contriBtn, youTubeBtn;
     TextView videoId, topicSelected;
     private static final String TAG = "ContributeActivity";
     private FirebaseDatabase mFirebasedatabase;
@@ -45,15 +45,12 @@ public class ContributeActivity extends AppCompatActivity {
     public static final String ANONYMOUS = "anonymous";
     public static final int TOPIC_REQ = 2;
     private String mUsername, key = "";
-    String[] spinnerArray;
-    HashMap<Integer, String> spinnerMap;
-    boolean isPresent=false;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == TOPIC_REQ) {
-            if(data!=null){
+            if (data != null) {
                 topic = data.getStringExtra("topicSelected");
                 topicCode = data.getStringExtra("topicCodeContributor");
                 topicSelected.setText("" + topic);
@@ -96,30 +93,24 @@ public class ContributeActivity extends AppCompatActivity {
         contriBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(topicCode!=null && videoId.getText()!=getString(R.string.open_youtube)){
+                if (topicCode != null && videoId.getText() != getString(R.string.open_youtube)) {
                     university = universityList.getSelectedItem().toString();
                     course = courseList.getSelectedItem().toString();
                     branch = branchList.getSelectedItem().toString();
                     semester = Integer.parseInt(semesterList.getSelectedItem().toString());
                     subject = subjectList.getSelectedItem().toString();
                     key = VideoData.createKey(university, course, branch, semester, subject, topicCode);
-                    isPresent=false;
-                    queryFirebase(key);
-                    if(isPresent){
-                        VideoData videoData = new VideoData(key, url);
-                        mMessagesDatabaseReference.push().setValue(videoData);
-                        Toast.makeText(ContributeActivity.this,
-                                "Video was Submitted :)", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(ContributeActivity.this,
-                                "Video already exist", Toast.LENGTH_SHORT).show();
-                    }
 
-                }else if(topicCode==null){
+                    VideoData videoData = new VideoData(key, url);
+                    mMessagesDatabaseReference.push().setValue(videoData);
+                    Toast.makeText(ContributeActivity.this,
+                            "Video was Submitted :)", Toast.LENGTH_SHORT).show();
+
+                } else if (topicCode == null) {
                     topicSelected.setError("Select your Topic");
                     Toast.makeText(ContributeActivity.this,
                             "Select the Topic!", Toast.LENGTH_SHORT).show();
-                }else if(videoId.getText()==getString(R.string.open_youtube)){
+                } else if (videoId.getText() == getString(R.string.open_youtube)) {
                     videoId.setError(getString(R.string.open_youtube));
                 }
             }
@@ -167,30 +158,4 @@ public class ContributeActivity extends AppCompatActivity {
             }
         });
     }
-    private void queryFirebase(String k){
-        Query query = FirebaseDatabase.getInstance().getReference("videoUrl")
-                .orderByChild("key")
-                .equalTo(k);
-        query.addListenerForSingleValueEvent(valueEventListener);
-    }
-    ValueEventListener valueEventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(@NonNull DataSnapshot snapshot) {
-            for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                VideoData videoData = dataSnapshot.getValue(VideoData.class);
-                assert videoData != null;
-                String k = videoData.getKey();
-                if (k != null) {
-                    if(k==key){
-                        isPresent=true;
-                    }
-                }
-            }
-        }
-
-        @Override
-        public void onCancelled(@NonNull DatabaseError error) {
-
-        }
-    };
 }
