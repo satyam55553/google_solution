@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">SyllabTube</string>
+    <string name="video_id">video ID</string>
+    <string name="submit">SUBMIT</string>
+    <string name="contribute">Contribute</string>
+    <string name="learner">Learner</string>
+
+    <string name="MU">Mumbai University</string>
+    <string name="DU">Delhi University</string>
+    <string name="GU">Gujarat University</string>
+    <string name="PU">Pune University</string>
+
+    <string name="BE">Bachelor of Engineering (B.E.)</string>
+
+    <string name="CO">Computer</string>
+    <string name="IT">Information Technology</string>
+    <string name="ET">Electronics &amp; Telecommunication</string>
+    <string name="EL">Electronics</string>
+    <string name="IN">Instrumentation</string>
+
+    <string name="ESRTOS">Embedded System &amp; Real Time Operating System</string>
+    <string name="open_youtube">Open Youtube App &amp; share your video</string>
+    <string name="play">Play</string>
+    <string name="video_not_added_yet">Video not added yet :(</string>
+    <string name="select_your_topic">Select your Topic</string>
+    <string name="youtube">YouTube</string>
+    <string name="select_university">Select University</string>
+    <string name="select_course">Select Course</string>
+    <string name="select_branch">Select Branch</string>
+    <string name="select_semester">Select Semester</string>
+    <string name="select_subject">Select Subject</string>
+    <string name="set_as_home_screen">Set as home screen</string>
+    <string name="contributers_page">CONTRIBUTER\'S PAGE</string>
+</resources>

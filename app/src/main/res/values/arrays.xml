@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="university_array">
+        <item>"Mumbai University"</item>
+        <item>"Delhi University"</item>
+        <item>"Gujarat University"</item>
+        <item>"Pune University"</item>
+    </string-array>
+    <string-array name="courses_array">
+        <item>"Bachelor of Engineering (B.E.)"</item>
+    </string-array>
+    <string-array name="branch_array">
+        <item>"Computer"</item>
+        <item>"Information Technology"</item>
+        <item>"Electronics and Telecommunication"</item>
+        <item>"Electronics</item>
+        <item>"Instrumentation"</item>
+        <item>"Mechanical"</item>
+        <item>"Civil"</item>
+        <item>"Electrical"</item>
+        <item>"Chemical"</item>
+    </string-array>
+    <string-array name="semester_array">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+    </string-array>
+    <string-array name="subject_array">
+        <item>"Embedded System &amp; Real Time Operating System"</item>
+        <item>"Sub 2"</item>
+        <item>"Sub 3"</item>
+        <item>"Sub 4"</item>
+        <item>"Sub 5"</item>
+        <item>"Sub 6"</item>
+    </string-array>
+
+</resources>
