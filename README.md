@@ -3,6 +3,8 @@ SyllabTube App
 
 # WORKING
 
+Watch this video: https://youtu.be/qPeXp9yDpJM
+
 This app contains two sections
 > 1.Contributor
 
